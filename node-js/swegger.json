@@ -1,0 +1,186 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node documentation",
+    "description": "This is an API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "felipe.pichl@hotmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create users",
+        "description": "Create a new user",
+        "requestBody": {
+          "required": true,
+          "description": "Fileds required for create a new user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "John Due",
+                  "email": "johndue@example.com",
+                  "password": "@hash_13"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Create a new user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "e5f29978-8764-417c-9ff3-d73964e331d7",
+                  "admin": false,
+                  "name": "John Due",
+                  "email": "johndue@example.com",
+                  "created_at": "2022-04-29T01:02:49.546Z",
+                  "updated_at": "2022-04-29T01:02:49.546Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: Bad Request",
+            "content": {
+              "application/json": {
+
+                "example": {
+                  "error": "User already exists"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/avatar": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Update a new avatar",
+        "description": "Update a new avatar",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Update a new user"
+          }
+        }
+      }
+    },
+    "/issues": {
+      "post": {
+        "tags": ["Issues"],
+        "summary": "Create Issue",
+        "description": "Create a new Issue",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description" : {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "description": "issue name sampled",
+                  "latitude": -30.1093778,
+                  "longitude": -51.3166929
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Create a new Issue",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "6fed2a42-2a28-4f80-b58b-6ad11677ae8e",
+                  "description": "issue name sampled",
+                  "cordinates": {
+                    "latitude": -30.1093778,
+                    "longitude": -51.3166929
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Issues"],
+        "summary": "List all issues",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "cordinates": {
+                        "type": "object",
+                        "properties": {
+                          "latitude": {
+                            "type": "number"
+                          },
+                          "longitude": {
+                            "type": ""
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
