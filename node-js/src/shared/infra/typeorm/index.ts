@@ -2,7 +2,6 @@ import { DataSource } from 'typeorm';
 
 import { User } from '@modules/accounts/infra/typeorm/entities/User';
 import { UserTokens } from '@modules/accounts/infra/typeorm/entities/UserTokens';
-import { Issue } from '@modules/issues/infra/typeorm/entities/Issue';
 
 const database = {
   dev: './src/shared/infra/typeorm/database.sqlite',
@@ -12,7 +11,7 @@ const database = {
 const AppDataSource = new DataSource({
   type: 'sqlite',
   database: process.env.NODE_ENV === 'test' ? database.test : database.dev,
-  entities: [User, UserTokens, Issue],
+  entities: [User, UserTokens],
   migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
 });
 
