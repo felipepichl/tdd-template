@@ -18,13 +18,13 @@ class UsersRepository implements IUsersRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const reseult = await this.prisma.users.findUnique({
+    const result = await this.prisma.users.findUnique({
       where: {
         email,
       },
     });
 
-    return reseult;
+    return result;
   }
 
   async findById(user_id: string): Promise<User> {

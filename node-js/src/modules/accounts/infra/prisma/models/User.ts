@@ -1,23 +1,7 @@
-import { v4 as uuid } from 'uuid';
+import { PrismaClient } from '@prisma/client';
 
 class User {
-  readonly id: string;
-
-  name: string;
-
-  email: string;
-
-  password: string;
-
-  avatar: string;
-
-  created_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
+  constructor(private readonly prismaUser: PrismaClient['users']) {}
 }
 
 export { User };

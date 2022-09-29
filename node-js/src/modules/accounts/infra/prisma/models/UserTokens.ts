@@ -1,5 +1,7 @@
 import { v4 as uuid } from 'uuid';
 
+import { UsersTokens } from '@prisma/client';
+
 import { User } from './User';
 
 class UserTokens {
@@ -9,7 +11,7 @@ class UserTokens {
 
   user_id: string;
 
-  user: User;
+  users: User;
 
   expires_date: Date;
 
