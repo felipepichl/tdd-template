@@ -15,5 +15,19 @@ model Users {
   avatar     String?
   created_at DateTime @default(now())
 
+  UsersTokens UsersTokens[]
+
   @@map("users")
+}
+
+model UsersTokens {
+  id            String   @id @default(uuid())
+  refresh_token String
+  expires_date  DateTime
+  created_at    DateTime @default(now())
+
+  users      Users  @relation(fields: [fk_user_id], references: [id])
+  fk_user_id String
+
+  @@map("users_tokens")
 }
