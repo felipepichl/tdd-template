@@ -1,8 +1,6 @@
 import { ICreateUserTokensDTO } from '@modules/accounts/dtos/ICreateUserTokensDTO';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
-import { PrismaClient } from '@prisma/client';
-
-import { UserTokens } from '../models/UserTokens';
+import { PrismaClient, UsersTokens } from '@prisma/client';
 
 class UsersTokensRepository implements IUsersTokensRepository {
   private prisma: PrismaClient;
@@ -15,7 +13,7 @@ class UsersTokensRepository implements IUsersTokensRepository {
     refresh_token,
     expires_date,
     user_id,
-  }: ICreateUserTokensDTO): Promise<UserTokens> {
+  }: ICreateUserTokensDTO): Promise<UsersTokens> {
     const result = await this.prisma.usersTokens.create({
       data: {
         refresh_token,
@@ -29,7 +27,7 @@ class UsersTokensRepository implements IUsersTokensRepository {
   findByUserIdAndRefreshToken(
     user_id: string,
     refresh_token: string,
-  ): Promise<UserTokens> {
+  ): Promise<UsersTokens> {
     throw new Error('Method not implemented.');
   }
   deleteById(id: string): Promise<void> {
