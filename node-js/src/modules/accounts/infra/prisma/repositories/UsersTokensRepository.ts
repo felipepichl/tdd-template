@@ -24,14 +24,20 @@ class UsersTokensRepository implements IUsersTokensRepository {
 
     return result;
   }
-  findByUserIdAndRefreshToken(
+  async findByUserIdAndRefreshToken(
     user_id: string,
     refresh_token: string,
   ): Promise<UsersTokens> {
-    throw new Error('Method not implemented.');
+    const result = await this.prisma.usersTokens.findFirst({
+      where: { fk_user_id: user_id, refresh_token },
+    });
+
+    return result;
   }
-  deleteById(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+  async deleteById(id: string): Promise<void> {
+    await this.prisma.usersTokens.delete({
+      where: { id },
+    });
   }
 }
 
