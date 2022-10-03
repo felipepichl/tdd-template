@@ -2,7 +2,7 @@ import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { PrismaClient, Users } from '@prisma/client';
 
-class UsersRepository implements IUsersRepository {
+class UsersRepository implements IUsersRepository<Users> {
   private prisma: PrismaClient;
 
   constructor() {
