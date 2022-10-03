@@ -1,6 +1,6 @@
 import { ICreateUserTokensDTO } from '@modules/accounts/dtos/ICreateUserTokensDTO';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
-import { PrismaClient, UsersTokens } from '@prisma/client';
+import { PrismaClient, UserTokens } from '@prisma/client';
 
 class UsersTokensRepository implements IUsersTokensRepository {
   private prisma: PrismaClient;
@@ -13,8 +13,8 @@ class UsersTokensRepository implements IUsersTokensRepository {
     refresh_token,
     expires_date,
     user_id,
-  }: ICreateUserTokensDTO): Promise<UsersTokens> {
-    const result = await this.prisma.usersTokens.create({
+  }: ICreateUserTokensDTO): Promise<UserTokens> {
+    const result = await this.prisma.userTokens.create({
       data: {
         refresh_token,
         expires_date,
@@ -27,15 +27,15 @@ class UsersTokensRepository implements IUsersTokensRepository {
   async findByUserIdAndRefreshToken(
     user_id: string,
     refresh_token: string,
-  ): Promise<UsersTokens> {
-    const result = await this.prisma.usersTokens.findFirst({
+  ): Promise<UserTokens> {
+    const result = await this.prisma.userTokens.findFirst({
       where: { fk_user_id: user_id, refresh_token },
     });
 
     return result;
   }
   async deleteById(id: string): Promise<void> {
-    await this.prisma.usersTokens.delete({
+    await this.prisma.userTokens.delete({
       where: { id },
     });
   }

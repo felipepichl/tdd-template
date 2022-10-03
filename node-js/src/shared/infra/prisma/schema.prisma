@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model User {
   id         String   @id @default(uuid())
   name       String
   email      String   @unique
@@ -15,18 +15,18 @@ model Users {
   avatar     String?
   created_at DateTime @default(now())
 
-  UsersTokens UsersTokens[]
+  UsersTokens UserTokens[]
 
   @@map("users")
 }
 
-model UsersTokens {
+model UserTokens {
   id            String   @id @default(uuid())
   refresh_token String
   expires_date  DateTime
   created_at    DateTime @default(now())
 
-  users      Users  @relation(fields: [fk_user_id], references: [id])
+  users      User   @relation(fields: [fk_user_id], references: [id])
   fk_user_id String
 
   @@map("users_tokens")
