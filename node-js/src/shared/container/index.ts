@@ -12,12 +12,12 @@ import { UsersTokensRepository } from '@modules/accounts/infra/typeorm/repositor
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 
-container.registerSingleton<IUsersRepository>(
+container.registerSingleton<IUsersRepository<any>>(
   'UsersRepository',
   UsersRepository,
 );
 
-container.registerSingleton<IUsersTokensRepository>(
+container.registerSingleton<IUsersTokensRepository<any>>(
   'UsersTokensRepository',
   UsersTokensRepository,
 );
