@@ -14,7 +14,7 @@ interface IRequest {
 class CreateUserUseCase {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
+    private usersRepository: IUsersRepository<any>,
     @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
