@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import sweggerUi from 'swagger-ui-express';
 
