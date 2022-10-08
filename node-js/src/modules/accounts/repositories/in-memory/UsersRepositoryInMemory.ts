@@ -3,7 +3,7 @@ import { User } from '@modules/accounts/infra/prisma/models/User';
 
 import { IUsersRepository } from '../IUsersRepository';
 
-class UsersRepositoryInMemory implements IUsersRepository<User> {
+class UsersRepositoryInMemory implements IUsersRepository {
   private users: User[] = [];
 
   async create(data: ICreateUserDTO): Promise<void> {
