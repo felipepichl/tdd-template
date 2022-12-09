@@ -1,10 +1,10 @@
-import { sign } from 'jsonwebtoken';
-import { inject, injectable } from 'tsyringe';
-
 import { authConfig } from '@config/auth';
 import { IHashProvider } from '@modules/accounts/providers/HashProvider/models/IHashProvider';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
+import { sign } from 'jsonwebtoken';
+import { inject, injectable } from 'tsyringe';
+
 import { IDateProvider } from '@shared/container/providers/DateProvider/model/IDateProvider';
 import { AppError } from '@shared/error/AppError';
 

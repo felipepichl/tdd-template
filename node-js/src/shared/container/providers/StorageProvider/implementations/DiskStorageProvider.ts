@@ -1,7 +1,6 @@
+import { uploadConfig } from '@config/upload';
 import fs from 'fs';
 import { resolve } from 'path';
-
-import { uploadConfig } from '@config/upload';
 
 import { IStorageProvider } from '../models/IStorageProvider';
 

@@ -1,7 +1,7 @@
-import { inject, injectable } from 'tsyringe';
-
 import { IHashProvider } from '@modules/accounts/providers/HashProvider/models/IHashProvider';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
+import { inject, injectable } from 'tsyringe';
+
 import { AppError } from '@shared/error/AppError';
 
 interface IRequest {

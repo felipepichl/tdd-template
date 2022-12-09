@@ -1,5 +1,3 @@
-import { container } from 'tsyringe';
-
 import '@modules/accounts/providers';
 import './providers';
 
@@ -7,6 +5,7 @@ import { UsersRepository } from '@modules/accounts/infra/prisma/repositories/Use
 import { UsersTokensRepository } from '@modules/accounts/infra/prisma/repositories/UsersTokensRepository';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
+import { container } from 'tsyringe';
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',

@@ -1,6 +1,6 @@
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { injectable, inject } from 'tsyringe';
 
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IStorageProvider } from '@shared/container/providers/StorageProvider/models/IStorageProvider';
 import { AppError } from '@shared/error/AppError';
 
