@@ -2,7 +2,7 @@ import { ICreateUserTokensDTO } from '@modules/accounts/dtos/ICreateUserTokensDT
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 import { PrismaClient, UserTokens } from '@prisma/client';
 
-class UsersTokensRepository implements IUsersTokensRepository<UserTokens> {
+class UsersTokensRepository implements IUsersTokensRepository {
   private prisma: PrismaClient;
 
   constructor() {

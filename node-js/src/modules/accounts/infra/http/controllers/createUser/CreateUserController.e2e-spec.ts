@@ -2,9 +2,7 @@ import request from 'supertest';
 
 import { app } from '@shared/infra/http/start/app';
 
-describe('Create User Controller', () => {
-  // beforeEach(async () => {});
-
+describe('[E2E] = Create User', () => {
   it('should be able to create a new user', async () => {
     const response = await request(app).post('/users').send({
       name: 'John Due',
