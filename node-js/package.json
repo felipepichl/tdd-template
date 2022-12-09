@@ -3,25 +3,24 @@
   "scripts": {
     "build": "tsc",
     "dev:server": " ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/shared/infra/http/start/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "migrations": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -d src/shared/infra/typeorm/index.ts",
+    "prisma:generate": "prisma generate --schema=./src/shared/infra/prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema=./src/shared/infra/prisma/schema.prisma",
+    "prisma:studio": "prisma studio --schema=./src/shared/infra/prisma/schema.prisma",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "@prisma/client": "^4.3.1",
+    "@prisma/client": "^4.7.1",
     "bcryptjs": "^2.4.3",
-    "dayjs": "^1.11.5",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.5-lts.1",
-    "prisma": "^4.3.1",
+    "prisma": "^4.7.1",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.1.1",
     "supertest": "^6.2.4",
     "swagger-ui-express": "^4.5.0",
     "tsyringe": "^4.7.0",
-    "typeorm": "0.3.10",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

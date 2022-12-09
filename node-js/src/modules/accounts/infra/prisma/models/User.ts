@@ -8,6 +8,7 @@ class User implements IUser {
   email: string;
   password: string;
   avatar: string;
+
   created_at: Date;
 
   constructor() {
