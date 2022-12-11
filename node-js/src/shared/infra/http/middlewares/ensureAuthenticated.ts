@@ -24,10 +24,10 @@ async function ensureAuthenticated(
 
   const [, token] = authHeader.split(' ');
 
-  const { secret } = authConfig;
+  const { secret_token } = authConfig;
 
   try {
-    const decoded = verify(token, secret);
+    const decoded = verify(token, secret_token);
 
     const { sub: user_id } = decoded as ITokenPayload;
 
