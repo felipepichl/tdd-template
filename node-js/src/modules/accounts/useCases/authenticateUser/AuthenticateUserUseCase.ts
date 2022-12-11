@@ -5,7 +5,7 @@ import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTok
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
-import { IDateProvider } from '@shared/container/providers/DateProvider/model/IDateProvider';
+import { IDateProvider } from '@shared/container/providers/DateProvider/models/IDateProvider';
 import { AppError } from '@shared/error/AppError';
 
 interface IRequest {
